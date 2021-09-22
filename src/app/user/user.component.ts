@@ -17,7 +17,7 @@ export class UserComponent implements OnInit {
   }
   getAllUsers() {
     this.userService.getAllUsers().subscribe(data => {
-      // console.log('user', data);
+      // console.log('userList', data);
       this.user = data;
     })
   }
