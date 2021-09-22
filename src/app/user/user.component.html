@@ -1,0 +1,88 @@
+<p class="alert alert-warning mt-3">See bottom of list for user details.</p>
+<table class="table table-bordered mt-3">
+    <thead class="table-dark">
+      <tr>        
+        <th>Name</th>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Proccess</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let userItem of user;">
+        <td>{{userItem.name}}</td>
+        <td>{{userItem.username}}</td>
+        <td>{{userItem.email}}</td>
+        <td>
+          <button mdbBtn type="button" class="btn btn-md" color="info" mdbWavesEffect (click)="userDetail(userItem.id)">
+            Details
+          </button>
+      </td>
+      </tr>
+    </tbody>
+</table>
+
+<div class="user-detail"  *ngIf="userDetailModel!=null">
+    <div class="user">
+    <h4><i class="fa fa-user"></i> User Detail Form</h4>
+      <div class="detail">
+          <span>Name:</span>
+          <p>{{userDetailModel.name}}</p>
+      </div>
+      <div class="detail">
+          <span>User Name:</span>
+          <p>{{userDetailModel.username}}</p>
+      </div>
+      <div class="detail">
+          <span>Email:</span>
+          <p>{{userDetailModel.email}}</p>
+      </div>
+      <div class="detail">
+          <span>Phone:</span>
+          <p>{{userDetailModel.phone}}</p>
+      </div>
+      <div class="detail">
+          <span>Website:</span>
+          <p><a href="{{userDetailModel.website}}" target="_blank" title="{{userDetailModel.website}}">{{userDetailModel.website}} <i class="fa fa-external-link-alt"></i></a></p>
+      </div>
+      <h4><i class="fa fa-address-card"></i> Address</h4>
+      <div class="detail">
+          <span>Street:</span>
+          <p>{{userDetailModel.address.street}}</p>
+      </div>
+      <div class="detail">
+          <span>Suite:</span>
+          <p>{{userDetailModel.address.suite}}</p>
+      </div>
+      <div class="detail">
+          <span>City:</span>
+          <p>{{userDetailModel.address.city}}</p>
+      </div>
+      <div class="detail">
+          <span>Zipcode:</span>
+          <p>{{userDetailModel.address.zipcode}}</p>
+      </div>
+      <h5><i class="fa fa-map-marked-alt"></i> Geo</h5>
+      <div class="detail">
+          <span>Lat:</span>
+          <p>{{userDetailModel.address.geo.lat}}</p>
+      </div>
+      <div class="detail">
+          <span>Lng:</span>
+          <p>{{userDetailModel.address.geo.lng}}</p>
+      </div>        
+      <h4><i class="fa fa-building"></i> Company</h4>
+      <div class="detail">
+          <span>Name:</span>
+          <p>{{userDetailModel.company.name}}</p>
+      </div>
+      <div class="detail">
+          <span>Catch Phrase:</span>
+          <p>{{userDetailModel.company.catchPhrase}}</p>
+      </div>
+      <div class="detail">
+          <span>Bs:</span>
+          <p>{{userDetailModel.company.bs}}</p>
+      </div>
+  </div>
+</div>
